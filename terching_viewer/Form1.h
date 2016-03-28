@@ -74,8 +74,8 @@ namespace terching_viewer {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBar1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -153,8 +153,8 @@ namespace terching_viewer {
 			this->Text = L"title";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->Click += gcnew System::EventHandler(this, &Form1::trackBar1_Scroll);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBar1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -162,118 +162,136 @@ namespace terching_viewer {
 #pragma endregion
 		//コンストラクタ
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
-				 //初期画像の設定
-				 pictureBox1->Image=Image::FromFile("..\\imagefile\\frames_EMR_20141211_a\\frame-00000.jpg");
-				 // Run this procedure in an appropriate event.
-				 // Set to 1 second.
-				 timer1->Interval = 1000/30;
-				 // Enable timer.
-				 timer1->Enabled = true;
-				 timer1->Tick += gcnew System::EventHandler(this,&Form1::timer1_Tick);
-				 button1->Text = "Stop";
-				 button1->Click += gcnew System::EventHandler(this,&Form1::button1_Click);
+		//初期画像の設定
+		pictureBox1->Image = Image::FromFile("..\\imagefile\\frames_EMR_20141211_a\\frame-00000.jpg");
+		// Run this procedure in an appropriate event.
+		// Set to 1 second.
+		timer1->Interval = 1000 / 30;
+		// Enable timer.
+		timer1->Enabled = true;
+		timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
+		button1->Text = "Stop";
+		button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+		trackBar1->Maximum = framenum;
 
-			 }
+	}
 
 			 //スライダーバーの設定
 	private: System::Void trackBar1_Scroll(System::Object^  sender, System::EventArgs^  e) {
 
-				 redraw(trackBar1->Value);
-				 /* char t1f[100];
-				 int cal_imgnum = (trackBar1->Value)*(17660.0/10000.0);
-				 sprintf_s(t1f,"..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg",cal_imgnum);
-				 string t2f=t1f;
-				 String^ filename = gcnew String(t2f.c_str());
+		redraw(trackBar1->Value);
+		/* char t1f[100];
+		int cal_imgnum = (trackBar1->Value)*(17660.0/10000.0);
+		sprintf_s(t1f,"..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg",cal_imgnum);
+		string t2f=t1f;
+		String^ filename = gcnew String(t2f.c_str());
 
-				 Image^ img = Image::FromFile( filename );
+		Image^ img = Image::FromFile( filename );
 
-				 pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
-				 pictureBox1->Image = img;
-				 */
-			 }
+		pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox1->Image = img;
+		*/
+	}
 
 
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
-				 trackBar1->Value++;
-				 redraw(trackBar1->Value);
-				 /*
-				 char t1f[100];
-				 int cal_imgnum = (trackBar1->Value)*(17660.0/10000.0);
-				 sprintf_s(t1f,"..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg",cal_imgnum);
-				 string t2f=t1f;
-				 String^ filename = gcnew String(t2f.c_str());
+		trackBar1->Value++;
+		redraw(trackBar1->Value);
+		/*
+		char t1f[100];
+		int cal_imgnum = (trackBar1->Value)*(17660.0/10000.0);
+		sprintf_s(t1f,"..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg",cal_imgnum);
+		string t2f=t1f;
+		String^ filename = gcnew String(t2f.c_str());
 
-				 Image^ img = Image::FromFile( filename );
+		Image^ img = Image::FromFile( filename );
 
-				 pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
-				 pictureBox1->Image = img;
-				 */
+		pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox1->Image = img;
+		*/
 
-				 int min = (trackBar1->Value/30)/60;
-				 int sec = (trackBar1->Value/30)%60;
-				 int msec= (trackBar1->Value%30)*(100/30);//小数点以下2桁まで表示させたいので100で割る。3桁の場合は1000で割る。
-				 char ttime[20];
-				 sprintf_s(ttime,"%02d:%02d.%02d",min,sec,msec);
-				 string t2time=ttime;
-				 String^ time=gcnew String(t2time.c_str());
+		int min = (trackBar1->Value / 30) / 60;
+		int sec = (trackBar1->Value / 30) % 60;
+		int msec = (trackBar1->Value % 30)*(100 / 30);//小数点以下2桁まで表示させたいので100で割る。3桁の場合は1000で割る。
+		char ttime[20];
+		sprintf_s(ttime, "%02d:%02d.%02d", min, sec, msec);
+		string t2time = ttime;
+		String^ time = gcnew String(t2time.c_str());
 
-				 char tfra[20];
-				 sprintf_s(tfra,"%d/%d",trackBar1->Value,framenum);
-				 string t2fra=tfra;
-				 String^ fra=gcnew String(t2fra.c_str());
+		char tfra[20];
+		sprintf_s(tfra, "%d/%d", trackBar1->Value, framenum);
+		string t2fra = tfra;
+		String^ fra = gcnew String(t2fra.c_str());
 
-				 label1->Text = time;
-				 label2->Text = fra;
+		label1->Text = time;
+		label2->Text = fra;
 
-			 }
+	}
 
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 if ( button1->Text == "Stop" )
-				 {
-					 button1->Text = "Start";
-					 timer1->Enabled = false;
-				 }
-				 else
-				 {
-					 button1->Text = "Stop";
-					 timer1->Enabled = true;
+		if (button1->Text == "Stop")
+		{
+			button1->Text = "Start";
+			timer1->Enabled = false;
+		}
+		else
+		{
+			button1->Text = "Stop";
+			timer1->Enabled = true;
 
-				 }
-			 }
+		}
+	}
 
 	private: void redraw(int framenum){
-				 char t1f[100];
-				 int cal_imgnum = (trackBar1->Value)*(17660/10000);
-				 //入出力
-				 sprintf_s(t1f,"..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg",cal_imgnum);
-				 string t2f=t1f;
-				 String^ filename = gcnew String(t2f.c_str());
+		if (trackBar1->Value > trackBar1->Maximum)
+		{
+			button1->Text = "Stop";
+			timer1->Enabled = true;
+		}
 
-				 Image^ img = Image::FromFile( filename );
+		char t1f[100];
+		
+		//入出力
+		sprintf_s(t1f, "..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg", trackBar1->Value);
+		string t2f = t1f;
+		String^ filename = gcnew String(t2f.c_str());
 
-				 pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
-				 pictureBox1->Image = img;
-			 }
+		Image^ img = Image::FromFile(filename);
+
+		pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox1->Image = img;
+	}
 	private: System::Void pictureBox1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-				 SolidBrush^ redBrush = gcnew SolidBrush( Color::FromArgb(200,255,0,0 ));
+		//臓器用マーカー
+		SolidBrush^ redBrush = gcnew SolidBrush(Color::FromArgb(200, 255, 0, 0));
+		SolidBrush^ yellowBrush = gcnew SolidBrush(Color::FromArgb(200, 0, 255, 0));
 
-				 // Create location and size of ellipse.
-				 float x = positiondata[trackBar1->Value].tannoux;
-				 float y = positiondata[trackBar1->Value].tannouy;
-				 float width = 15.0F;
-				 float height = 15.0F;
+		// Create location and size of ellipse.
+		
+		float width = 15.0F;
+		float height = 15.0F;
 
-				 char tfra[200];
-				 sprintf_s(tfra,"%f-%f", x, y);
-				 string t3fra=tfra;
-				 String^ fra=gcnew String(t3fra.c_str());
-				 
-				 label3->Text = fra;
-				 
-				 // Fill ellipse on screen.
-				 e->Graphics->FillEllipse( redBrush, x, y, width, height );
-			 }
+		// Fill ellipse on screen.
+		float x = positiondata[trackBar1->Value].tannoux * (pictureBox1->Width / 640.0);
+		float y = positiondata[trackBar1->Value].tannouy * (pictureBox1->Height / 480.0);
+		e->Graphics->FillEllipse(redBrush, x, y, width, height);
+
+		x = positiondata[trackBar1->Value].tannoukanx * (pictureBox1->Width / 640.0);
+		y = positiondata[trackBar1->Value].tannoukany * (pictureBox1->Height / 480.0);
+		e->Graphics->FillEllipse(redBrush, x, y, width, height);
+
+		x = positiondata[trackBar1->Value].tannoudoumyakux * (pictureBox1->Width / 640.0);
+		y = positiondata[trackBar1->Value].tannoudoumyakuy * (pictureBox1->Height / 480.0);
+		e->Graphics->FillEllipse(redBrush, x, y, width, height);
+
+		char tfra[200];
+		sprintf_s(tfra, "%f-%f", positiondata[trackBar1->Value].tannoudoumyakux, x);
+		string t3fra = tfra;
+		String^ fra = gcnew String(t3fra.c_str());
+		label3->Text = fra;
+
+	}
 
 	};
 }
