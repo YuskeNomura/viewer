@@ -242,8 +242,8 @@ namespace terching_viewer {
 
 		if (586 < trackBar1->Value&&trackBar1->Value < 1482)
 		{
-			double diffarence = (1482 - 586)/100.0;
-			progressBar1->Value = (trackBar1->Value - 586)/diffarence;
+			double diffarence = (1482 - 586) / 100.0;
+			progressBar1->Value = (trackBar1->Value - 586) / diffarence;
 		}
 		label1->Text = time;
 		label2->Text = fra;
@@ -379,13 +379,13 @@ namespace terching_viewer {
 		int p2width = 20;
 		int p2height = 20;
 
-		for (int i = 0; i < 5&& index!=0; i++)
+		for (int i = 0; i < 5 && index != 0; i++)
 		{
 			for (int i2 = 0; i2 < 5; i2++)
 			{
 				if (grid_eye[i][i2] != 0)
 				{
-					SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(grid_eye[i][i2] * (255 / 300.0),255, 0, 0));
+					SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(grid_eye[i][i2] * (255 / 300.0), 255, 0, 0));
 					e->FillRectangle(blackBrush, p2width*i, p2height*i2, p2width, p2height);
 					pictureBox2->Image = img;
 				}
@@ -395,7 +395,7 @@ namespace terching_viewer {
 
 	}
 
-	
-};
+
+	};
 }
 
