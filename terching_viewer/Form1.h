@@ -350,230 +350,230 @@ namespace terching_viewer {
 #pragma endregion
 		//コンストラクタ
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
-				 //初期画像の設定
-				 pictureBox1->Image = Image::FromFile("..\\imagefile\\frames_EMR_20141211_a\\frame-00000.jpg");
-				 // Run this procedure in an appropriate event.
-				 // Set to 1 second.
-				 timer1->Interval = 1000 / 10;
-				 // Enable timer.
-				 timer1->Enabled = true;
-				 timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
-				 button1->Text = "Stop";
-				 button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
-				 trackBar1->Maximum = framenum;
+		//初期画像の設定
+		pictureBox1->Image = Image::FromFile("..\\imagefile\\frames_EMR_20141211_a\\frame-00000.jpg");
+		// Run this procedure in an appropriate event.
+		// Set to 1 second.
+		timer1->Interval = 1000 / 10;
+		// Enable timer.
+		timer1->Enabled = true;
+		timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
+		button1->Text = "Stop";
+		button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+		trackBar1->Maximum = framenum;
 
 	}
 
 			 //スライダーバーの設定
 	private: System::Void trackBar1_Scroll(System::Object^  sender, System::EventArgs^  e) {
 
-				 redraw(trackBar1->Value);
+		redraw(trackBar1->Value);
 
 	}
 
 
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
-				 trackBar1->Value++;
-				 redraw(trackBar1->Value);
+		trackBar1->Value++;
+		redraw(trackBar1->Value);
 
 
-				 int min = (trackBar1->Value / 30) / 60;
-				 int sec = (trackBar1->Value / 30) % 60;
-				 int msec = (trackBar1->Value % 30)*(100 / 30);//小数点以下2桁まで表示させたいので100で割る。3桁の場合は1000で割る。
-				 char ttime[20];
-				 sprintf_s(ttime, "%02d:%02d.%02d", min, sec, msec);
-				 string t2time = ttime;
-				 String^ time = gcnew String(t2time.c_str());
+		int min = (trackBar1->Value / 30) / 60;
+		int sec = (trackBar1->Value / 30) % 60;
+		int msec = (trackBar1->Value % 30)*(100 / 30);//小数点以下2桁まで表示させたいので100で割る。3桁の場合は1000で割る。
+		char ttime[20];
+		sprintf_s(ttime, "%02d:%02d.%02d", min, sec, msec);
+		string t2time = ttime;
+		String^ time = gcnew String(t2time.c_str());
 
-				 char tfra[20];
-				 sprintf_s(tfra, "%d/%d", trackBar1->Value, framenum);
-				 string t2fra = tfra;
-				 String^ fra = gcnew String(t2fra.c_str());
+		char tfra[20];
+		sprintf_s(tfra, "%d/%d", trackBar1->Value, framenum);
+		string t2fra = tfra;
+		String^ fra = gcnew String(t2fra.c_str());
 
-				 if (586 < trackBar1->Value&&trackBar1->Value < 1482)
-				 {
-					 double diffarence = (1482 - 586) / 100.0;
-					 progressBar1->Value = (trackBar1->Value - 586) / diffarence;
-				 }
-				 label1->Text = time;
-				 label2->Text = fra;
+		if (586 < trackBar1->Value&&trackBar1->Value < 1482)
+		{
+			double diffarence = (1482 - 586) / 100.0;
+			progressBar1->Value = (trackBar1->Value - 586) / diffarence;
+		}
+		label1->Text = time;
+		label2->Text = fra;
 
 	}
 
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 if (button1->Text == "Stop")
-				 {
-					 button1->Text = "Start";
-					 timer1->Enabled = false;
-				 }
-				 else
-				 {
-					 button1->Text = "Stop";
-					 timer1->Enabled = true;
+		if (button1->Text == "Stop")
+		{
+			button1->Text = "Start";
+			timer1->Enabled = false;
+		}
+		else
+		{
+			button1->Text = "Stop";
+			timer1->Enabled = true;
 
-				 }
+		}
 	}
 
 	private: void redraw(int framenum){
-				 if (trackBar1->Value > trackBar1->Maximum - 10)
-				 {
-					 button1->Text = "Stop";
-					 timer1->Enabled = true;
-				 }
+		if (trackBar1->Value > trackBar1->Maximum - 10)
+		{
+			button1->Text = "Stop";
+			timer1->Enabled = true;
+		}
 
-				 char t1f[100];
+		char t1f[100];
 
-				 //入出力
-				 sprintf_s(t1f, "..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg", trackBar1->Value);
-				 string t2f = t1f;
-				 String^ filename = gcnew String(t2f.c_str());
+		//入出力
+		sprintf_s(t1f, "..\\imagefile\\frames_EMR_20141211_a\\frame-%05d.jpg", trackBar1->Value);
+		string t2f = t1f;
+		String^ filename = gcnew String(t2f.c_str());
 
-				 Image^ img = Image::FromFile(filename);
+		Image^ img = Image::FromFile(filename);
 
-				 pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
-				 pictureBox1->Image = img;
+		pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox1->Image = img;
 
-				 grid();
+		grid();
 
-				 flow();
+		flow();
 
-				 if (trackBar1->Value % 100 == 0)
-				 {
-					 errorProvider1->SetError(textBox1, "temp");
-				 }
-
+		if (trackBar1->Value % 100 == 0)
+		{
+			errorProvider1->SetError(textBox1, "temp");
+		}
+		
 	}
 	private: System::Void pictureBox1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-				 //臓器用マーカー
-				 SolidBrush^ redBrush = gcnew SolidBrush(Color::FromArgb(200, 255, 0, 0));
-				 SolidBrush^ yellowBrush = gcnew SolidBrush(Color::FromArgb(200, 0, 255, 0));
+		//臓器用マーカー
+		SolidBrush^ redBrush = gcnew SolidBrush(Color::FromArgb(200, 255, 0, 0));
+		SolidBrush^ yellowBrush = gcnew SolidBrush(Color::FromArgb(200, 0, 255, 0));
 
-				 // Create location and size of ellipse.
+		// Create location and size of ellipse.
 
-				 float width = 15.0F;
-				 float height = 15.0F;
+		float width = 15.0F;
+		float height = 15.0F;
 
-				 // Fill ellipse on screen.
-				 float x = positiondata[trackBar1->Value].tannoux * (pictureBox1->Width / 640.0);
-				 float y = positiondata[trackBar1->Value].tannouy * (pictureBox1->Height / 480.0);
-				 e->Graphics->FillEllipse(redBrush, x, y, width, height);
+		// Fill ellipse on screen.
+		float x = positiondata[trackBar1->Value].tannoux * (pictureBox1->Width / 640.0);
+		float y = positiondata[trackBar1->Value].tannouy * (pictureBox1->Height / 480.0);
+		e->Graphics->FillEllipse(redBrush, x, y, width, height);
 
-				 x = positiondata[trackBar1->Value].tannoukanx * (pictureBox1->Width / 640.0);
-				 y = positiondata[trackBar1->Value].tannoukany * (pictureBox1->Height / 480.0);
-				 e->Graphics->FillEllipse(redBrush, x, y, width, height);
+		x = positiondata[trackBar1->Value].tannoukanx * (pictureBox1->Width / 640.0);
+		y = positiondata[trackBar1->Value].tannoukany * (pictureBox1->Height / 480.0);
+		e->Graphics->FillEllipse(redBrush, x, y, width, height);
 
-				 x = positiondata[trackBar1->Value].tannoudoumyakux * (pictureBox1->Width / 640.0);
-				 y = positiondata[trackBar1->Value].tannoudoumyakuy * (pictureBox1->Height / 480.0);
-				 e->Graphics->FillEllipse(redBrush, x, y, width, height);
+		x = positiondata[trackBar1->Value].tannoudoumyakux * (pictureBox1->Width / 640.0);
+		y = positiondata[trackBar1->Value].tannoudoumyakuy * (pictureBox1->Height / 480.0);
+		e->Graphics->FillEllipse(redBrush, x, y, width, height);
 
-				 char tfra[200];
-				 sprintf_s(tfra, "%f-%f", positiondata[trackBar1->Value].tannoudoumyakux, x);
-				 string t3fra = tfra;
-				 String^ fra = gcnew String(t3fra.c_str());
-				 label3->Text = fra;
+		char tfra[200];
+		sprintf_s(tfra, "%f-%f", positiondata[trackBar1->Value].tannoudoumyakux, x);
+		string t3fra = tfra;
+		String^ fra = gcnew String(t3fra.c_str());
+		label3->Text = fra;
 
 	}
 
 	private: void grid(){
-				 int grid_eye[5][5] = { 0 };
-				 Bitmap^ img = gcnew Bitmap(100, 100);
-				 Graphics^ e = Graphics::FromImage(img);
+		int grid_eye[5][5] = { 0 };
+		Bitmap^ img = gcnew Bitmap(100, 100);
+		Graphics^ e = Graphics::FromImage(img);
 
-				 e->FillRectangle(Brushes::White, e->VisibleClipBounds);
+		e->FillRectangle(Brushes::White, e->VisibleClipBounds);
 
-				 float centorx = positiondata[trackBar1->Value].tyuusix;
-				 float centory = positiondata[trackBar1->Value].tyuusiy;
+		float centorx = positiondata[trackBar1->Value].tyuusix;
+		float centory = positiondata[trackBar1->Value].tyuusiy;
 
-				 int index;
-				 //x
-				 int inx, iny;
-				 for (index = trackBar1->Value; index > (trackBar1->Value - 299) && index > 0; index--){
-					 float diffarencex = positiondata[trackBar1->Value].tyuusix - positiondata[index].tyuusix;
-					 if (diffarencex < -14.5)
-					 {
-						 inx = 0;
-					 }
-					 else if (-14.5 < diffarencex  && diffarencex < -7.5)
-					 {
-						 inx = 1;
-					 }
-					 else if (-7.5 < diffarencex  && diffarencex < 7.5)
-					 {
-						 inx = 2;
-					 }
-					 else if (7.5 < diffarencex  && diffarencex < 14.5)
-					 {
-						 inx = 3;
-					 }
-					 else
-					 {
-						 inx = 4;
-					 }
-					 float diffarencey = positiondata[trackBar1->Value].tyuusiy - positiondata[index].tyuusiy;
-					 if (diffarencey < -14.5)
-					 {
-						 iny = 0;
-					 }
-					 else if (-14.5 < diffarencey  && diffarencey < -7.5)
-					 {
-						 iny = 1;
-					 }
-					 else if (-7.5 < diffarencey  && diffarencey < 7.5)
-					 {
-						 iny = 2;
-					 }
-					 else if (7.5 < diffarencey  && diffarencey < 14.5)
-					 {
-						 iny = 3;
-					 }
-					 else
-					 {
-						 iny = 4;
-					 }
-					 grid_eye[inx][iny]++;
+		int index;
+		//x
+		int inx, iny;
+		for (index = trackBar1->Value; index > (trackBar1->Value - 299) && index > 0; index--){
+			float diffarencex = positiondata[trackBar1->Value].tyuusix - positiondata[index].tyuusix;
+			if (diffarencex < -14.5)
+			{
+				inx = 0;
+			}
+			else if (-14.5 < diffarencex  && diffarencex < -7.5)
+			{
+				inx = 1;
+			}
+			else if (-7.5 < diffarencex  && diffarencex < 7.5)
+			{
+				inx = 2;
+			}
+			else if (7.5 < diffarencex  && diffarencex < 14.5)
+			{
+				inx = 3;
+			}
+			else
+			{
+				inx = 4;
+			}
+			float diffarencey = positiondata[trackBar1->Value].tyuusiy - positiondata[index].tyuusiy;
+			if (diffarencey < -14.5)
+			{
+				iny = 0;
+			}
+			else if (-14.5 < diffarencey  && diffarencey < -7.5)
+			{
+				iny = 1;
+			}
+			else if (-7.5 < diffarencey  && diffarencey < 7.5)
+			{
+				iny = 2;
+			}
+			else if (7.5 < diffarencey  && diffarencey < 14.5)
+			{
+				iny = 3;
+			}
+			else
+			{
+				iny = 4;
+			}
+			grid_eye[inx][iny]++;
 
-				 }
-				 int p2width = 20;
-				 int p2height = 20;
+		}
+		int p2width = 20;
+		int p2height = 20;
 
-				 for (int i = 0; i < 5 && index != 0; i++)
-				 {
-					 for (int i2 = 0; i2 < 5; i2++)
-					 {
-						 if (grid_eye[i][i2] != 0)
-						 {
-							 SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(grid_eye[i][i2] * (255 / 300.0), 255, 0, 0));
-							 e->FillRectangle(blackBrush, p2width*i, p2height*i2, p2width, p2height);
-							 pictureBox2->Image = img;
-						 }
-					 }
+		for (int i = 0; i < 5 && index != 0; i++)
+		{
+			for (int i2 = 0; i2 < 5; i2++)
+			{
+				if (grid_eye[i][i2] != 0)
+				{
+					SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(grid_eye[i][i2] * (255 / 300.0), 255, 0, 0));
+					e->FillRectangle(blackBrush, p2width*i, p2height*i2, p2width, p2height);
+					pictureBox2->Image = img;
+				}
+			}
 
-				 }
+		}
 
 
 	}
 
 	private: void flow()
 	{
-				 char t1f[100];
+		char t1f[100];
 
-				 sprintf_s(t1f, "..\\arrow.jpg");
-				 string t2f = t1f;
-				 String^ filename = gcnew String(t2f.c_str());
+		sprintf_s(t1f, "..\\arrow.jpg");
+		string t2f = t1f;
+		String^ filename = gcnew String(t2f.c_str());
 
-				 Image^ arrow_img = Image::FromFile(filename);
+		Image^ arrow_img = Image::FromFile(filename);
 
-				 sprintf_s(t1f, "..\\arrow_true.jpg");
-				 t2f = t1f;
-				 filename = gcnew String(t2f.c_str());
+		sprintf_s(t1f, "..\\arrow_true.jpg");
+		t2f = t1f;
+		filename = gcnew String(t2f.c_str());
 
-				 Image^ arrow_true_img = Image::FromFile(filename);
-				 pictureBox5->SizeMode = PictureBoxSizeMode::StretchImage;
-				 pictureBox5->Image = arrow_img;
+		Image^ arrow_true_img = Image::FromFile(filename);
+		pictureBox5->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox5->Image = arrow_img;
 
-				 pictureBox6->SizeMode = PictureBoxSizeMode::StretchImage;
-				 pictureBox6->Image = arrow_img;
+		pictureBox6->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox6->Image = arrow_img;
 	}
 
 
