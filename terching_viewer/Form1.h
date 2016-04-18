@@ -396,6 +396,13 @@ namespace terching_viewer {
 			double diffarence = (1482 - 586) / 100.0;
 			progressBar1->Value = (trackBar1->Value - 586) / diffarence;
 		}
+
+		else if (1482 < trackBar1->Value&&trackBar1->Value < 10000)
+		{
+			progressBar1->Location.Offset(label4->Location.X-progressBar1->Location.X,progressBar1->Location.Y);
+			double diffarence = (10000 - 1482) / 100.0;
+			progressBar1->Value = (trackBar1->Value - 1482) / diffarence;
+		}
 		label1->Text = time;
 		label2->Text = fra;
 
