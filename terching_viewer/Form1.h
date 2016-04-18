@@ -222,7 +222,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox5
 			// 
-			this->pictureBox5->Location = System::Drawing::Point(209, 490);
+			this->pictureBox5->Location = System::Drawing::Point(160, 490);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(63, 29);
 			this->pictureBox5->TabIndex = 112;
@@ -230,7 +230,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox6
 			// 
-			this->pictureBox6->Location = System::Drawing::Point(425, 490);
+			this->pictureBox6->Location = System::Drawing::Point(379, 490);
 			this->pictureBox6->Name = L"pictureBox6";
 			this->pictureBox6->Size = System::Drawing::Size(63, 29);
 			this->pictureBox6->TabIndex = 113;
@@ -239,7 +239,7 @@ namespace terching_viewer {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(331, 501);
+			this->label4->Location = System::Drawing::Point(270, 501);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(53, 12);
 			this->label4->TabIndex = 114;
@@ -248,7 +248,7 @@ namespace terching_viewer {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(511, 501);
+			this->label5->Location = System::Drawing::Point(479, 501);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(54, 12);
 			this->label5->TabIndex = 115;
@@ -290,7 +290,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox7
 			// 
-			this->pictureBox7->Location = System::Drawing::Point(568, 490);
+			this->pictureBox7->Location = System::Drawing::Point(556, 490);
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->Size = System::Drawing::Size(63, 29);
 			this->pictureBox7->TabIndex = 128;
@@ -393,13 +393,15 @@ namespace terching_viewer {
 
 		if (586 < trackBar1->Value&&trackBar1->Value < 1482)
 		{
+			progressBar1->SetBounds(label16->Location.X, progressBar1->Location.Y, progressBar1->Width, progressBar1->Height);
 			double diffarence = (1482 - 586) / 100.0;
 			progressBar1->Value = (trackBar1->Value - 586) / diffarence;
 		}
 
 		else if (1482 < trackBar1->Value&&trackBar1->Value < 10000)
 		{
-			progressBar1->Location.X=label4->Location.X;
+			progressBar1->Location.Offset(label4->Location.X-progressBar1->Location.X,progressBar1->Location.Y);
+			progressBar1->SetBounds(label4->Location.X, progressBar1->Location.Y,progressBar1->Width,progressBar1->Height);
 			double diffarence = (10000 - 1482) / 100.0;
 			progressBar1->Value = (trackBar1->Value - 1482) / diffarence;
 		}
