@@ -42,8 +42,8 @@ namespace terching_viewer {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::Label^  label3;
+
+
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 	private: System::Windows::Forms::ProgressBar^  progressBar1;
@@ -67,6 +67,11 @@ namespace terching_viewer {
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::PictureBox^  pictureBox8;
 	private: System::Windows::Forms::PictureBox^  pictureBox7;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label2;
 
 
 
@@ -96,8 +101,6 @@ namespace terching_viewer {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
@@ -113,6 +116,11 @@ namespace terching_viewer {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -167,27 +175,9 @@ namespace terching_viewer {
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(131, 434);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 12);
-			this->label2->TabIndex = 106;
-			this->label2->Text = L"label2";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(57, 434);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 12);
-			this->label3->TabIndex = 107;
-			this->label3->Text = L"label3";
-			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(774, 219);
+			this->pictureBox2->Location = System::Drawing::Point(662, 251);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(100, 100);
 			this->pictureBox2->TabIndex = 108;
@@ -195,7 +185,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(880, 219);
+			this->pictureBox3->Location = System::Drawing::Point(843, 251);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(100, 100);
 			this->pictureBox3->TabIndex = 109;
@@ -203,7 +193,7 @@ namespace terching_viewer {
 			// 
 			// progressBar1
 			// 
-			this->progressBar1->Location = System::Drawing::Point(98, 516);
+			this->progressBar1->Location = System::Drawing::Point(73, 516);
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(56, 23);
 			this->progressBar1->TabIndex = 110;
@@ -239,51 +229,61 @@ namespace terching_viewer {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(270, 501);
+			this->label4->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label4->Location = System::Drawing::Point(255, 494);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(53, 12);
+			this->label4->Size = System::Drawing::Size(94, 21);
 			this->label4->TabIndex = 114;
 			this->label4->Text = L"Ž‰–b”—£";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(479, 501);
+			this->label5->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label5->Location = System::Drawing::Point(463, 494);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(54, 12);
+			this->label5->Size = System::Drawing::Size(97, 21);
 			this->label5->TabIndex = 115;
 			this->label5->Text = L"ƒNƒŠƒbƒsƒ“ƒO";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(637, 501);
+			this->label6->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label6->Location = System::Drawing::Point(639, 494);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(29, 12);
+			this->label6->Size = System::Drawing::Size(52, 21);
 			this->label6->TabIndex = 116;
 			this->label6->Text = L"Ø’f";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(755, 501);
+			this->label7->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label7->Location = System::Drawing::Point(816, 494);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(53, 12);
+			this->label7->Size = System::Drawing::Size(94, 21);
 			this->label7->TabIndex = 117;
 			this->label7->Text = L"’_”X—V—£";
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(101, 501);
+			this->label16->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label16->Location = System::Drawing::Point(69, 494);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(53, 12);
+			this->label16->Size = System::Drawing::Size(94, 21);
 			this->label16->TabIndex = 126;
 			this->label16->Text = L"’_”X‹“ã";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(737, 384);
+			this->textBox1->Location = System::Drawing::Point(757, 399);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 19);
 			this->textBox1->TabIndex = 127;
@@ -298,17 +298,77 @@ namespace terching_viewer {
 			// 
 			// pictureBox8
 			// 
-			this->pictureBox8->Location = System::Drawing::Point(686, 490);
+			this->pictureBox8->Location = System::Drawing::Point(728, 490);
 			this->pictureBox8->Name = L"pictureBox8";
 			this->pictureBox8->Size = System::Drawing::Size(63, 29);
 			this->pictureBox8->TabIndex = 129;
 			this->pictureBox8->TabStop = false;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label8->Location = System::Drawing::Point(672, 218);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(101, 16);
+			this->label8->TabIndex = 130;
+			this->label8->Text = L"n—ûˆã‚Ì‰f‘œ";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label2->Location = System::Drawing::Point(765, 433);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(103, 16);
+			this->label2->TabIndex = 131;
+			this->label2->Text = L"ƒGƒ‰[ƒƒbƒZ[ƒW";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label3->Location = System::Drawing::Point(662, 358);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(133, 16);
+			this->label3->TabIndex = 132;
+			this->label3->Text = L"‰SŽÒ‚ÌŽ‹ü•ª•z";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label9->Location = System::Drawing::Point(843, 358);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(133, 16);
+			this->label9->TabIndex = 133;
+			this->label9->Text = L"n—ûˆã‚ÌŽ‹ü•ª•z";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label10->Location = System::Drawing::Point(13, 438);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(101, 16);
+			this->label10->TabIndex = 134;
+			this->label10->Text = L"‰SŽÒ‚Ì‰f‘œ";
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(992, 616);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->pictureBox8);
 			this->Controls->Add(this->pictureBox7);
 			this->Controls->Add(this->textBox1);
@@ -323,8 +383,6 @@ namespace terching_viewer {
 			this->Controls->Add(this->progressBar1);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->trackBar1);
@@ -406,7 +464,6 @@ namespace terching_viewer {
 			progressBar1->Value = (trackBar1->Value - 1482) / diffarence;
 		}
 		label1->Text = time;
-		label2->Text = fra;
 
 	}
 
@@ -480,7 +537,6 @@ namespace terching_viewer {
 		sprintf_s(tfra, "%f-%f", positiondata[trackBar1->Value].tannoudoumyakux, x);
 		string t3fra = tfra;
 		String^ fra = gcnew String(t3fra.c_str());
-		label3->Text = fra;
 
 	}
 
