@@ -64,6 +64,7 @@ namespace terching_viewer {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label16;
 	private: System::Windows::Forms::Label^  label15;
+	private: System::Windows::Forms::TextBox^  textBox1;
 
 
 
@@ -115,6 +116,7 @@ namespace terching_viewer {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -353,11 +355,19 @@ namespace terching_viewer {
 			this->label16->TabIndex = 126;
 			this->label16->Text = L"’_”X‹“ã";
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(737, 384);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 19);
+			this->textBox1->TabIndex = 127;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(992, 616);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->label14);
@@ -489,6 +499,11 @@ namespace terching_viewer {
 		grid();
 
 		flow();
+
+		if (trackBar1->Value % 100 == 0)
+		{
+			errorProvider1->SetError(textBox1, "temp");
+		}
 		
 	}
 	private: System::Void pictureBox1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
