@@ -574,6 +574,12 @@ namespace terching_viewer {
 
 		pictureBox6->SizeMode = PictureBoxSizeMode::StretchImage;
 		pictureBox6->Image = arrow_img;
+
+		pictureBox7->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox7->Image = arrow_img;
+
+		pictureBox8->SizeMode = PictureBoxSizeMode::StretchImage;
+		pictureBox8->Image = arrow_img;
 	}
 
 
