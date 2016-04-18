@@ -399,7 +399,7 @@ namespace terching_viewer {
 
 		else if (1482 < trackBar1->Value&&trackBar1->Value < 10000)
 		{
-			progressBar1->Location.Offset(label4->Location.X-progressBar1->Location.X,progressBar1->Location.Y);
+			progressBar1->Location.X=label4->Location.X;
 			double diffarence = (10000 - 1482) / 100.0;
 			progressBar1->Value = (trackBar1->Value - 1482) / diffarence;
 		}
