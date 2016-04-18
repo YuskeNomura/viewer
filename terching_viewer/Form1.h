@@ -51,20 +51,22 @@ namespace terching_viewer {
 	private: System::Windows::Forms::ErrorProvider^  errorProvider1;
 	private: System::Windows::Forms::PictureBox^  pictureBox6;
 	private: System::Windows::Forms::PictureBox^  pictureBox5;
-	private: System::Windows::Forms::Label^  label14;
-	private: System::Windows::Forms::Label^  label13;
-	private: System::Windows::Forms::Label^  label12;
-	private: System::Windows::Forms::Label^  label11;
-	private: System::Windows::Forms::Label^  label10;
-	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::Label^  label8;
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label16;
-	private: System::Windows::Forms::Label^  label15;
+
 	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::PictureBox^  pictureBox8;
+	private: System::Windows::Forms::PictureBox^  pictureBox7;
 
 
 
@@ -107,16 +109,10 @@ namespace terching_viewer {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -125,6 +121,8 @@ namespace terching_viewer {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->errorProvider1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -205,7 +203,7 @@ namespace terching_viewer {
 			// 
 			// progressBar1
 			// 
-			this->progressBar1->Location = System::Drawing::Point(98, 490);
+			this->progressBar1->Location = System::Drawing::Point(98, 516);
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(56, 23);
 			this->progressBar1->TabIndex = 110;
@@ -224,7 +222,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox5
 			// 
-			this->pictureBox5->Location = System::Drawing::Point(204, 449);
+			this->pictureBox5->Location = System::Drawing::Point(209, 490);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(63, 29);
 			this->pictureBox5->TabIndex = 112;
@@ -232,7 +230,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox6
 			// 
-			this->pictureBox6->Location = System::Drawing::Point(204, 484);
+			this->pictureBox6->Location = System::Drawing::Point(425, 490);
 			this->pictureBox6->Name = L"pictureBox6";
 			this->pictureBox6->Size = System::Drawing::Size(63, 29);
 			this->pictureBox6->TabIndex = 113;
@@ -241,110 +239,38 @@ namespace terching_viewer {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(284, 528);
+			this->label4->Location = System::Drawing::Point(331, 501);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(76, 12);
+			this->label4->Size = System::Drawing::Size(53, 12);
 			this->label4->TabIndex = 114;
-			this->label4->Text = L"“d‹CƒƒX-’_”X";
+			this->label4->Text = L"Ž‰–b”—£";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(284, 484);
+			this->label5->Location = System::Drawing::Point(511, 501);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(76, 12);
+			this->label5->Size = System::Drawing::Size(54, 12);
 			this->label5->TabIndex = 115;
-			this->label5->Text = L"“d‹CƒƒX-Ž‰–b";
+			this->label5->Text = L"ƒNƒŠƒbƒsƒ“ƒO";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(284, 434);
+			this->label6->Location = System::Drawing::Point(637, 501);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(59, 12);
+			this->label6->Size = System::Drawing::Size(29, 12);
 			this->label6->TabIndex = 116;
-			this->label6->Text = L"ççŽq-Ž‰–b";
+			this->label6->Text = L"Ø’f";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(418, 434);
+			this->label7->Location = System::Drawing::Point(755, 501);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(78, 12);
+			this->label7->Size = System::Drawing::Size(53, 12);
 			this->label7->TabIndex = 117;
-			this->label7->Text = L"ƒNƒŠƒbƒv-’_”XŠÇ";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(420, 528);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(94, 12);
-			this->label8->TabIndex = 118;
-			this->label8->Text = L"ççŽqE‚Í‚³‚Ý-’_ŠÇ";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(570, 434);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(76, 12);
-			this->label9->TabIndex = 119;
-			this->label9->Text = L"‚Í‚³‚Ý-’_”XŠÇ";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(570, 484);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(88, 12);
-			this->label10->TabIndex = 120;
-			this->label10->Text = L"‚Í‚³‚Ý-’_”X“®–¬";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(570, 528);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(88, 12);
-			this->label11->TabIndex = 121;
-			this->label11->Text = L"“d‹CƒƒX-’_”XŠÇ";
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(721, 544);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(64, 12);
-			this->label12->TabIndex = 122;
-			this->label12->Text = L"‚Í‚³‚Ý-’_ŠÇ";
-			// 
-			// label13
-			// 
-			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(418, 484);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(90, 12);
-			this->label13->TabIndex = 123;
-			this->label13->Text = L"ƒNƒŠƒbƒv-’_”X“®–¬";
-			// 
-			// label14
-			// 
-			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(721, 501);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(64, 12);
-			this->label14->TabIndex = 124;
-			this->label14->Text = L"‚Í‚³‚Ý-’_”X";
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(721, 449);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(76, 12);
-			this->label15->TabIndex = 125;
-			this->label15->Text = L"“d‹CƒƒX-’_”X";
+			this->label7->Text = L"’_”X—V—£";
 			// 
 			// label16
 			// 
@@ -362,21 +288,31 @@ namespace terching_viewer {
 			this->textBox1->Size = System::Drawing::Size(100, 19);
 			this->textBox1->TabIndex = 127;
 			// 
+			// pictureBox7
+			// 
+			this->pictureBox7->Location = System::Drawing::Point(568, 490);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(63, 29);
+			this->pictureBox7->TabIndex = 128;
+			this->pictureBox7->TabStop = false;
+			// 
+			// pictureBox8
+			// 
+			this->pictureBox8->Location = System::Drawing::Point(686, 490);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(63, 29);
+			this->pictureBox8->TabIndex = 129;
+			this->pictureBox8->TabStop = false;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(992, 616);
+			this->Controls->Add(this->pictureBox8);
+			this->Controls->Add(this->pictureBox7);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label16);
-			this->Controls->Add(this->label15);
-			this->Controls->Add(this->label14);
-			this->Controls->Add(this->label13);
-			this->Controls->Add(this->label12);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->label10);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -405,6 +341,8 @@ namespace terching_viewer {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->errorProvider1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -635,9 +573,7 @@ namespace terching_viewer {
 		pictureBox5->Image = arrow_img;
 
 		pictureBox6->SizeMode = PictureBoxSizeMode::StretchImage;
-		pictureBox6->Image = arrow_true_img;
-		//maroni
-		int maroni = 0;
+		pictureBox6->Image = arrow_img;
 	}
 
 
