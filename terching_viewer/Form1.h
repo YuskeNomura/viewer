@@ -135,7 +135,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(12, 1);
+			this->pictureBox1->Location = System::Drawing::Point(16, 5);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(607, 430);
 			this->pictureBox1->TabIndex = 0;
@@ -275,7 +275,7 @@ namespace terching_viewer {
 			this->label16->AutoSize = true;
 			this->label16->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label16->Location = System::Drawing::Point(69, 494);
+			this->label16->Location = System::Drawing::Point(60, 494);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(94, 21);
 			this->label16->TabIndex = 126;
