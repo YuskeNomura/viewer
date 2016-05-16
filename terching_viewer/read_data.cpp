@@ -48,8 +48,35 @@ int read_data()
 		i++;
 		if(i>18000) break;
 	}
+
+	if (i == 0) return -1;
+	framenum = i;
+
+	sprintf_s(dirname, "..\\positionfile\\%s", exfilename);
+	fopen_s(&fp, dirname, "r");
+	i = 0;
+
+	while (fscanf_s(fp, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &ttime, &ttannoux, &ttannouy, &ttannoudoumyakux, &ttannoudoumyakuy, &ttannoukanx, &ttannoukany, &ttyuusix, &ttyuusiy, &tkanshix, &tkanshiy, &tkaokakudo) != EOF)
+
+	{
+		temp.time = ttime;
+		temp.tannoux = ttannoux;
+		temp.tannouy = ttannouy;
+		temp.tannoudoumyakux = ttannoudoumyakux;
+		temp.tannoudoumyakuy = ttannoudoumyakuy;
+		temp.tannoukanx = ttannoukanx;
+		temp.tannoukany = ttannoukany;
+		temp.tyuusix = ttyuusix;
+		temp.tyuusiy = ttyuusiy;
+		temp.kanshix = tkanshix;
+		temp.kanshiy = tkanshiy;
+		temp.kaokakudo = tkaokakudo;
+		expositiondata.push_back(temp);
+		i++;
+		if (i>24000) break;
+	}
 	if(i==0) return -1;
-	framenum=i;
+	exframenum=i;
 	return 0;
 }
 

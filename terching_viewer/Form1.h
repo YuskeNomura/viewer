@@ -432,7 +432,9 @@ namespace terching_viewer {
 
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
-		trackBar1->Value++;
+		if (trackBar1->Value<framenum)
+			trackBar1->Value++;
+
 		redraw(trackBar1->Value);
 
 
