@@ -193,7 +193,7 @@ namespace terching_viewer {
 			// 
 			// progressBar1
 			// 
-			this->progressBar1->Location = System::Drawing::Point(73, 516);
+			this->progressBar1->Location = System::Drawing::Point(64, 518);
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(56, 23);
 			this->progressBar1->TabIndex = 110;

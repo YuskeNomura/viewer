@@ -25,3 +25,6 @@ static char filename[] = "1211_a.csv";
 static char exfilename[] = "1218_a.csv";
 static int framenum;//可変で取得
 static int exframenum;
+
+//熟練医用のグリッド
+static int exgrid[5][5][100];
