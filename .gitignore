@@ -187,6 +187,7 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+<<<<<<< HEAD
 *.jpg
 *.jpg
 *.m4v
@@ -197,3 +198,14 @@ imagefile/frames_EMR_20141218_b/c_kansi_exC.csv
 imagefile/frames_EMR_20141218_b/cystic_duct.csv
 *.csv
 imagefile/frames_EMR_20141218_b/gallbladder.csv
+=======
+imagefile/frames_EMR_20141218_a/20141218-114014.csv
+*.m4v
+*.avi
+*.txt
+*.jpg
+imagefile/frames_EMR_20141218_a/cystic_artery.csv
+imagefile/frames_EMR_20141218_a/c_kansi_exB.csv
+*.csv
+imagefile/frames_EMR_20141218_a/cystic_duct.csv
+>>>>>>> origin/master
