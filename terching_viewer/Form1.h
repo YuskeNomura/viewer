@@ -2,6 +2,8 @@
 
 #include "read_data.h"
 
+
+
 namespace terching_viewer {
 
 	using namespace System;
@@ -72,6 +74,8 @@ namespace terching_viewer {
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Timer^  timer2;
+	private: System::Windows::Forms::TrackBar^  trackBar2;
 
 
 
@@ -121,6 +125,8 @@ namespace terching_viewer {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->trackBar2 = (gcnew System::Windows::Forms::TrackBar());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -131,6 +137,7 @@ namespace terching_viewer {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -200,7 +207,7 @@ namespace terching_viewer {
 			// 
 			// pictureBox4
 			// 
-			this->pictureBox4->Location = System::Drawing::Point(662, 12);
+			this->pictureBox4->Location = System::Drawing::Point(665, 5);
 			this->pictureBox4->Name = L"pictureBox4";
 			this->pictureBox4->Size = System::Drawing::Size(299, 191);
 			this->pictureBox4->TabIndex = 111;
@@ -309,7 +316,7 @@ namespace terching_viewer {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label8->Location = System::Drawing::Point(672, 218);
+			this->label8->Location = System::Drawing::Point(672, 232);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(101, 16);
 			this->label8->TabIndex = 130;
@@ -359,6 +366,18 @@ namespace terching_viewer {
 			this->label10->TabIndex = 134;
 			this->label10->Text = L"初心者の映像";
 			// 
+			// timer2
+			// 
+			this->timer2->Tick += gcnew System::EventHandler(this, &Form1::timer2_Tick);
+			// 
+			// trackBar2
+			// 
+			this->trackBar2->Location = System::Drawing::Point(662, 163);
+			this->trackBar2->Maximum = 100000;
+			this->trackBar2->Name = L"trackBar2";
+			this->trackBar2->Size = System::Drawing::Size(299, 45);
+			this->trackBar2->TabIndex = 135;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
@@ -387,6 +406,7 @@ namespace terching_viewer {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->trackBar1);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->trackBar2);
 			this->Name = L"Form1";
 			this->Text = L"title";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
@@ -401,6 +421,7 @@ namespace terching_viewer {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -413,6 +434,7 @@ namespace terching_viewer {
 		// Run this procedure in an appropriate event.
 		// Set to 1 second.
 		timer1->Interval = 1000 / 10;
+		timer2->Interval = 1000 / 10;
 		// Enable timer.
 		timer1->Enabled = true;
 		timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
@@ -432,7 +454,7 @@ namespace terching_viewer {
 
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
-		if (trackBar1->Value<framenum)
+		if (trackBar1->Value < framenum)
 			trackBar1->Value++;
 
 		redraw(trackBar1->Value);
@@ -450,20 +472,50 @@ namespace terching_viewer {
 		sprintf_s(tfra, "%d/%d", trackBar1->Value, framenum);
 		string t2fra = tfra;
 		String^ fra = gcnew String(t2fra.c_str());
+		
 
-		if (586 < trackBar1->Value&&trackBar1->Value < 1482)
+		if (900 < trackBar1->Value&&trackBar1->Value < 1482)
 		{
 			progressBar1->SetBounds(label16->Location.X, progressBar1->Location.Y, progressBar1->Width, progressBar1->Height);
-			double diffarence = (1482 - 586) / 100.0;
-			progressBar1->Value = (trackBar1->Value - 586) / diffarence;
+			double diffarence = 10*30.0;
+			double temp = (trackBar1->Value - 900) / diffarence;
+			if (temp > 1)progressBar1->Value = 100;
+			else progressBar1->Value = temp*100;
 		}
 
-		else if (1482 < trackBar1->Value&&trackBar1->Value < 10000)
+		else if (1500 < trackBar1->Value&&trackBar1->Value < 13950)
 		{
-			progressBar1->Location.Offset(label4->Location.X-progressBar1->Location.X,progressBar1->Location.Y);
-			progressBar1->SetBounds(label4->Location.X, progressBar1->Location.Y,progressBar1->Width,progressBar1->Height);
-			double diffarence = (10000 - 1482) / 100.0;
-			progressBar1->Value = (trackBar1->Value - 1482) / diffarence;
+			progressBar1->Location.Offset(label4->Location.X - progressBar1->Location.X, progressBar1->Location.Y);
+			progressBar1->SetBounds(label4->Location.X, progressBar1->Location.Y, progressBar1->Width, progressBar1->Height);
+			double diffarence = 330*30.0; 
+			double temp = (trackBar1->Value - 1500) / diffarence;
+			if (temp > 1)progressBar1->Value = 100;
+			else progressBar1->Value = temp*100;
+			if (progressBar1->Value > 80 && trackBar2->Value<10200)
+			{
+				timer1->Enabled = false;
+				trackBar2->Value = 9800;
+				timer2->Enabled = true;
+			}
+		}
+		else if (14400 < trackBar1->Value&&trackBar1->Value < 15660)
+		{
+			progressBar1->Location.Offset(label5->Location.X - progressBar1->Location.X, progressBar1->Location.Y);
+			progressBar1->SetBounds(label5->Location.X, progressBar1->Location.Y, progressBar1->Width, progressBar1->Height);
+			double diffarence = 60 * 30.0;
+			double temp = (trackBar1->Value - 14400) / diffarence;
+			if (temp > 1)progressBar1->Value = 100;
+			else progressBar1->Value = temp*100;
+
+		}
+		else if (16200 < trackBar1->Value&&trackBar1->Value < 17100)
+		{
+			progressBar1->Location.Offset(label5->Location.X - progressBar1->Location.X, progressBar1->Location.Y);
+			progressBar1->SetBounds(label5->Location.X, progressBar1->Location.Y, progressBar1->Width, progressBar1->Height);
+			double diffarence = 45 * 30.0;
+			double temp = (trackBar1->Value - 16200) / diffarence;
+			if (temp > 1)progressBar1->Value = 100;
+			else progressBar1->Value = temp*100;
 		}
 		label1->Text = time;
 
@@ -486,8 +538,8 @@ namespace terching_viewer {
 	private: void redraw(int framenum){
 		if (trackBar1->Value > trackBar1->Maximum - 10)
 		{
-			button1->Text = "Stop";
-			timer1->Enabled = true;
+			button1->Text = "Start";
+			timer1->Enabled = false;
 		}
 
 		char t1f[100];
@@ -503,6 +555,7 @@ namespace terching_viewer {
 		pictureBox1->Image = img;
 
 		grid();
+		exgriddraw();
 
 		flow();
 
@@ -510,7 +563,7 @@ namespace terching_viewer {
 		{
 			errorProvider1->SetError(textBox1, "temp");
 		}
-		
+
 	}
 	private: System::Void pictureBox1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 		//臓器用マーカー
@@ -555,8 +608,8 @@ namespace terching_viewer {
 		int index;
 		//x
 		int inx, iny;
-		for (index = trackBar1->Value; index > (trackBar1->Value - 299) && index > 0; index--){
-			float diffarencex = positiondata[trackBar1->Value].tyuusix - positiondata[index].tyuusix;
+		for (index = trackBar1->Value; index > (trackBar1->Value - 29) && index > 0; index--){
+			float diffarencex = positiondata[index + 1].tyuusix - positiondata[index].tyuusix;
 			if (diffarencex < -14.5)
 			{
 				inx = 0;
@@ -577,7 +630,7 @@ namespace terching_viewer {
 			{
 				inx = 4;
 			}
-			float diffarencey = positiondata[trackBar1->Value].tyuusiy - positiondata[index].tyuusiy;
+			float diffarencey = positiondata[index + 1].tyuusiy - positiondata[index].tyuusiy;
 			if (diffarencey < -14.5)
 			{
 				iny = 0;
@@ -610,9 +663,80 @@ namespace terching_viewer {
 			{
 				if (grid_eye[i][i2] != 0)
 				{
-					SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(grid_eye[i][i2] * (255 / 300.0), 255, 0, 0));
+					SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(grid_eye[i][i2] * (180 / 30.0) + 60, 255, 0, 0));
 					e->FillRectangle(blackBrush, p2width*i, p2height*i2, p2width, p2height);
 					pictureBox2->Image = img;
+				}
+			}
+
+		}
+
+
+	}
+
+	private: void exgriddraw(){
+		int grid_eye[5][5] = { 0 };
+		Bitmap^ img = gcnew Bitmap(100, 100);
+		Graphics^ e = Graphics::FromImage(img);
+
+		e->FillRectangle(Brushes::White, e->VisibleClipBounds);
+
+		int index;
+
+		data mean;
+		for (index = trackBar1->Value; index > (trackBar1->Value - 29) && index > 0; index--)
+		{
+			mean.time += positiondata[index].time / 30;
+			mean.tannoukanx += positiondata[index].tannoux / 30;
+			mean.tannoukany += positiondata[index].tannouy / 30;
+			mean.tannoudoumyakux += positiondata[index].tannoudoumyakux / 30;
+			mean.tannoudoumyakuy += positiondata[index].tannoudoumyakuy / 30;
+			mean.tannoukanx += positiondata[index].tannoukanx / 30;
+			mean.tannoukany += positiondata[index].tannoukany / 30;
+			mean.tyuusix += positiondata[index].tyuusix / 30;
+			mean.tyuusiy += positiondata[index].tyuusiy / 30;
+			mean.kanshix += positiondata[index].kanshix / 30;
+			mean.kanshix += positiondata[index].kanshiy / 30;
+			mean.kaokakudo += positiondata[index].kaokakudo / 30;
+		}
+
+		double savediffarence=-100;
+		int saveindex=0;
+
+		for (int i = 0; i < 100; i++)
+		{
+			double tempdiffarence = pow(exmean[i].time - mean.time, 2.0)
+				+ pow(exmean[i].tannoux - mean.tannoux, 2.0)
+				+ pow(exmean[i].tannouy - mean.tannouy, 2.0)
+				+ pow(exmean[i].tannoudoumyakux - mean.tannoudoumyakuy, 2.0)
+				+ pow(exmean[i].tannoudoumyakuy - mean.tannoudoumyakuy, 2.0)
+				+ pow(exmean[i].tannoukanx - mean.tannoukanx, 2.0)
+				+ pow(exmean[i].tannoukany - mean.tannoukany, 2.0)
+				+ pow(exmean[i].tyuusix - mean.tyuusix, 2.0)
+				+ pow(exmean[i].tyuusiy - mean.tyuusiy, 2.0)
+				+ pow(exmean[i].kanshix - mean.kanshix, 2.0)
+				+ pow(exmean[i].kanshiy - mean.kanshiy, 2.0)
+				+ pow(exmean[i].kaokakudo - mean.kaokakudo, 2.0);
+			if (savediffarence < 0) savediffarence = tempdiffarence;
+			else if (tempdiffarence < savediffarence)
+			{
+				savediffarence = tempdiffarence;
+				saveindex = i;
+			}
+		}
+
+		int p2width = 20;
+		int p2height = 20;
+
+		for (int i = 0; i < 5 ; i++)
+		{
+			for (int i2 = 0; i2 < 5; i2++)
+			{
+				if (exgrid[i][i2][saveindex] != 0)
+				{
+					SolidBrush^ blackBrush = gcnew SolidBrush(Color::FromArgb(exgrid[i][i2][saveindex] * (210 / (double)clusternum[saveindex]) + 10, 255, 0, 0));
+					e->FillRectangle(blackBrush, p2width*i, p2height*i2, p2width, p2height);
+					pictureBox3->Image = img;
 				}
 			}
 
@@ -650,6 +774,30 @@ namespace terching_viewer {
 	}
 
 
-	};
+	private: System::Void timer2_Tick(System::Object^  sender, System::EventArgs^  e) {
+		if (trackBar2->Value < 10240)
+		{
+			trackBar2->Value++;
+
+			char t1f[100];
+			sprintf_s(t1f, "..\\imagefile\\frames_EMR_20141218_a\\frame-%05d.jpg", trackBar2->Value);
+			string t2f = t1f;
+			String^ filename = gcnew String(t2f.c_str());
+
+			Image^ img = Image::FromFile(filename);
+
+			pictureBox4->SizeMode = PictureBoxSizeMode::StretchImage;
+			pictureBox4->Image = img;
+		}
+		else
+		{
+			
+			button1->Text = "Stop";
+			timer1->Enabled = true;
+			//tankanura = false;
+		}
+
+	}
+};
 }
 
