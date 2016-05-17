@@ -27,5 +27,5 @@ static int framenum;//可変で取得
 static int exframenum;
 
 //熟練医用のグリッド
-//
+
 static int exgrid[5][5][100];
