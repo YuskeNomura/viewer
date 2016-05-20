@@ -76,6 +76,8 @@ namespace terching_viewer {
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Timer^  timer2;
 	private: System::Windows::Forms::TrackBar^  trackBar2;
+	private: System::Windows::Forms::Label^  label11;
+	private: System::Windows::Forms::Label^  label12;
 
 
 
@@ -127,6 +129,8 @@ namespace terching_viewer {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->trackBar2 = (gcnew System::Windows::Forms::TrackBar());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -142,19 +146,21 @@ namespace terching_viewer {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(16, 5);
+			this->pictureBox1->Location = System::Drawing::Point(21, 6);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(607, 430);
+			this->pictureBox1->Size = System::Drawing::Size(809, 538);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::pictureBox1_Paint);
 			// 
 			// trackBar1
 			// 
-			this->trackBar1->Location = System::Drawing::Point(58, 559);
+			this->trackBar1->Location = System::Drawing::Point(77, 699);
+			this->trackBar1->Margin = System::Windows::Forms::Padding(4);
 			this->trackBar1->Maximum = 10000;
 			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Size = System::Drawing::Size(903, 45);
+			this->trackBar1->Size = System::Drawing::Size(1204, 56);
 			this->trackBar1->TabIndex = 102;
 			this->trackBar1->TickFrequency = 100;
 			this->trackBar1->Scroll += gcnew System::EventHandler(this, &Form1::trackBar1_Scroll);
@@ -162,9 +168,10 @@ namespace terching_viewer {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(11, 589);
+			this->label1->Location = System::Drawing::Point(15, 736);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 12);
+			this->label1->Size = System::Drawing::Size(43, 15);
 			this->label1->TabIndex = 104;
 			this->label1->Text = L"label1";
 			// 
@@ -175,41 +182,46 @@ namespace terching_viewer {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(-9, 559);
+			this->button1->Location = System::Drawing::Point(-12, 699);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(100, 29);
 			this->button1->TabIndex = 105;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(662, 251);
+			this->pictureBox2->Location = System::Drawing::Point(883, 314);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(100, 100);
+			this->pictureBox2->Size = System::Drawing::Size(133, 125);
 			this->pictureBox2->TabIndex = 108;
 			this->pictureBox2->TabStop = false;
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(843, 251);
+			this->pictureBox3->Location = System::Drawing::Point(1124, 314);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(100, 100);
+			this->pictureBox3->Size = System::Drawing::Size(133, 125);
 			this->pictureBox3->TabIndex = 109;
 			this->pictureBox3->TabStop = false;
 			// 
 			// progressBar1
 			// 
-			this->progressBar1->Location = System::Drawing::Point(64, 518);
+			this->progressBar1->Location = System::Drawing::Point(13, 658);
+			this->progressBar1->Margin = System::Windows::Forms::Padding(4);
 			this->progressBar1->Name = L"progressBar1";
-			this->progressBar1->Size = System::Drawing::Size(56, 23);
+			this->progressBar1->Size = System::Drawing::Size(75, 29);
 			this->progressBar1->TabIndex = 110;
 			// 
 			// pictureBox4
 			// 
-			this->pictureBox4->Location = System::Drawing::Point(665, 5);
+			this->pictureBox4->Location = System::Drawing::Point(887, 6);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(299, 191);
+			this->pictureBox4->Size = System::Drawing::Size(399, 239);
 			this->pictureBox4->TabIndex = 111;
 			this->pictureBox4->TabStop = false;
 			// 
@@ -219,95 +231,112 @@ namespace terching_viewer {
 			// 
 			// pictureBox5
 			// 
-			this->pictureBox5->Location = System::Drawing::Point(160, 490);
+			this->pictureBox5->Location = System::Drawing::Point(200, 618);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(63, 29);
+			this->pictureBox5->Size = System::Drawing::Size(84, 36);
 			this->pictureBox5->TabIndex = 112;
 			this->pictureBox5->TabStop = false;
 			// 
 			// pictureBox6
 			// 
-			this->pictureBox6->Location = System::Drawing::Point(379, 490);
+			this->pictureBox6->Location = System::Drawing::Point(492, 618);
+			this->pictureBox6->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(63, 29);
+			this->pictureBox6->Size = System::Drawing::Size(84, 36);
 			this->pictureBox6->TabIndex = 113;
 			this->pictureBox6->TabStop = false;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label4->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label4->Location = System::Drawing::Point(255, 494);
+			this->label4->Location = System::Drawing::Point(305, 612);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(94, 21);
+			this->label4->Size = System::Drawing::Size(179, 42);
 			this->label4->TabIndex = 114;
 			this->label4->Text = L"脂肪剥離";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label5->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label5->Location = System::Drawing::Point(463, 494);
+			this->label5->Location = System::Drawing::Point(595, 612);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(97, 21);
+			this->label5->Size = System::Drawing::Size(184, 42);
 			this->label5->TabIndex = 115;
 			this->label5->Text = L"クリッピング";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label6->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label6->Location = System::Drawing::Point(639, 494);
+			this->label6->Location = System::Drawing::Point(900, 612);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(52, 21);
+			this->label6->Size = System::Drawing::Size(99, 42);
 			this->label6->TabIndex = 116;
 			this->label6->Text = L"切断";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label7->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label7->Location = System::Drawing::Point(816, 494);
+			this->label7->Location = System::Drawing::Point(1124, 612);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(94, 21);
+			this->label7->Size = System::Drawing::Size(179, 42);
 			this->label7->TabIndex = 117;
 			this->label7->Text = L"胆嚢遊離";
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label16->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label16->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label16->Location = System::Drawing::Point(60, 494);
+			this->label16->Location = System::Drawing::Point(13, 612);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(94, 21);
+			this->label16->Size = System::Drawing::Size(179, 42);
 			this->label16->TabIndex = 126;
 			this->label16->Text = L"胆嚢挙上";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(757, 399);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->textBox1->Location = System::Drawing::Point(860, 499);
+			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 19);
+			this->textBox1->Size = System::Drawing::Size(397, 34);
 			this->textBox1->TabIndex = 127;
 			// 
 			// pictureBox7
 			// 
-			this->pictureBox7->Location = System::Drawing::Point(556, 490);
+			this->pictureBox7->Location = System::Drawing::Point(799, 618);
+			this->pictureBox7->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(63, 29);
+			this->pictureBox7->Size = System::Drawing::Size(84, 36);
 			this->pictureBox7->TabIndex = 128;
 			this->pictureBox7->TabStop = false;
 			// 
 			// pictureBox8
 			// 
-			this->pictureBox8->Location = System::Drawing::Point(728, 490);
+			this->pictureBox8->Location = System::Drawing::Point(1024, 618);
+			this->pictureBox8->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(63, 29);
+			this->pictureBox8->Size = System::Drawing::Size(84, 36);
 			this->pictureBox8->TabIndex = 129;
 			this->pictureBox8->TabStop = false;
 			// 
@@ -316,9 +345,10 @@ namespace terching_viewer {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label8->Location = System::Drawing::Point(672, 232);
+			this->label8->Location = System::Drawing::Point(896, 290);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(101, 16);
+			this->label8->Size = System::Drawing::Size(125, 20);
 			this->label8->TabIndex = 130;
 			this->label8->Text = L"熟練医の映像";
 			// 
@@ -327,9 +357,10 @@ namespace terching_viewer {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label2->Location = System::Drawing::Point(765, 433);
+			this->label2->Location = System::Drawing::Point(1020, 541);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(103, 16);
+			this->label2->Size = System::Drawing::Size(129, 20);
 			this->label2->TabIndex = 131;
 			this->label2->Text = L"エラーメッセージ";
 			// 
@@ -338,9 +369,10 @@ namespace terching_viewer {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label3->Location = System::Drawing::Point(662, 358);
+			this->label3->Location = System::Drawing::Point(883, 448);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(133, 16);
+			this->label3->Size = System::Drawing::Size(165, 20);
 			this->label3->TabIndex = 132;
 			this->label3->Text = L"初心者の視線分布";
 			// 
@@ -349,9 +381,10 @@ namespace terching_viewer {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label9->Location = System::Drawing::Point(843, 358);
+			this->label9->Location = System::Drawing::Point(1124, 448);
+			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(133, 16);
+			this->label9->Size = System::Drawing::Size(165, 20);
 			this->label9->TabIndex = 133;
 			this->label9->Text = L"熟練医の視線分布";
 			// 
@@ -360,9 +393,10 @@ namespace terching_viewer {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(128)));
-			this->label10->Location = System::Drawing::Point(13, 438);
+			this->label10->Location = System::Drawing::Point(17, 548);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(101, 16);
+			this->label10->Size = System::Drawing::Size(125, 20);
 			this->label10->TabIndex = 134;
 			this->label10->Text = L"初心者の映像";
 			// 
@@ -372,17 +406,44 @@ namespace terching_viewer {
 			// 
 			// trackBar2
 			// 
-			this->trackBar2->Location = System::Drawing::Point(662, 163);
+			this->trackBar2->Location = System::Drawing::Point(883, 204);
+			this->trackBar2->Margin = System::Windows::Forms::Padding(4);
 			this->trackBar2->Maximum = 100000;
 			this->trackBar2->Name = L"trackBar2";
-			this->trackBar2->Size = System::Drawing::Size(299, 45);
+			this->trackBar2->Size = System::Drawing::Size(399, 56);
 			this->trackBar2->TabIndex = 135;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label11->Location = System::Drawing::Point(14, 580);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(109, 20);
+			this->label11->TabIndex = 136;
+			this->label11->Text = L"手術プロセス";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label12->Font = (gcnew System::Drawing::Font(L"MS UI Gothic", 72, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(128)));
+			this->label12->Location = System::Drawing::Point(1, 575);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(1326, 122);
+			this->label12->TabIndex = 137;
+			this->label12->Text = L"　　　　  　　　　　　　　　　　";
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(992, 616);
+			this->ClientSize = System::Drawing::Size(1323, 770);
+			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label3);
@@ -407,8 +468,10 @@ namespace terching_viewer {
 			this->Controls->Add(this->trackBar1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->trackBar2);
+			this->Controls->Add(this->label12);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Form1";
-			this->Text = L"title";
+			this->Text = L"熟練医の手術手技教示システム";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->Click += gcnew System::EventHandler(this, &Form1::trackBar1_Scroll);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -559,16 +622,14 @@ namespace terching_viewer {
 
 		flow();
 
-		if (trackBar1->Value % 100 == 0)
-		{
-			errorProvider1->SetError(textBox1, "temp");
-		}
+		
 
 	}
 	private: System::Void pictureBox1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 		//臓器用マーカー
 		SolidBrush^ redBrush = gcnew SolidBrush(Color::FromArgb(200, 255, 0, 0));
 		SolidBrush^ yellowBrush = gcnew SolidBrush(Color::FromArgb(200, 0, 255, 0));
+		SolidBrush^ blueBrush = gcnew SolidBrush(Color::FromArgb(200, 0, 0,255));
 
 		// Create location and size of ellipse.
 
@@ -582,11 +643,11 @@ namespace terching_viewer {
 
 		x = positiondata[trackBar1->Value].tannoukanx * (pictureBox1->Width / 640.0);
 		y = positiondata[trackBar1->Value].tannoukany * (pictureBox1->Height / 480.0);
-		e->Graphics->FillEllipse(redBrush, x, y, width, height);
+		e->Graphics->FillEllipse(yellowBrush, x, y, width, height);
 
 		x = positiondata[trackBar1->Value].tannoudoumyakux * (pictureBox1->Width / 640.0);
 		y = positiondata[trackBar1->Value].tannoudoumyakuy * (pictureBox1->Height / 480.0);
-		e->Graphics->FillEllipse(redBrush, x, y, width, height);
+		e->Graphics->FillEllipse(blueBrush, x, y, width, height);
 
 		char tfra[200];
 		sprintf_s(tfra, "%f-%f", positiondata[trackBar1->Value].tannoudoumyakux, x);
@@ -788,9 +849,15 @@ namespace terching_viewer {
 
 			pictureBox4->SizeMode = PictureBoxSizeMode::StretchImage;
 			pictureBox4->Image = img;
+
+			
+			errorProvider1->SetError(textBox1, "胆管裏の剥離");
+			textBox1->Text = "胆管裏を確認しましょう";
 		}
-		else
+		else if (trackBar2->Value>10260)
 		{
+			errorProvider1->SetError(textBox1, "");
+			textBox1->Text = "";
 			
 			button1->Text = "Stop";
 			timer1->Enabled = true;
